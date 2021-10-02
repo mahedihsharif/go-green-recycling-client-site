@@ -1,0 +1,17 @@
+.writeReviewInput{
+    font-size: 15px;
+}
+.writeReviewInput:focus{
+    outline:none
+}
+.submit{
+    color: white;
+    background-color: teal;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+}
+.submit:hover{
+    color:white;
+}

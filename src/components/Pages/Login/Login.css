@@ -1,0 +1,64 @@
+.same-btn {
+    margin-top: 15px;
+    padding: 15px;
+    font-weight: bold;
+    width:400px;
+    color: whitesmoke;
+    border-radius: 30px;
+   
+    
+}
+ 
+.form-container {
+   padding-top: 20px;
+    height: 400px;
+     padding-left: 50px;
+    border-radius: 5px;
+    background-color: rgb(207, 200, 200);
+     
+}
+
+.same-input {
+    margin-top: 10px;
+    padding: 10px;
+    border:rgb(185, 89, 21)
+}
+
+.same-input-field {
+    padding: 10px;
+    border-radius: 7px;
+    width:360px;
+}
+.forgate-container{
+    margin-left:110px;
+    color: rgb(136, 30, 30);
+    font-size:17px;
+    text-decoration: none;
+}
+.forgate-container:hover{
+    color:rgb(136, 30, 30);
+    cursor: pointer;
+}
+.login-btn{
+    width:350px;
+    border-radius: 7px;
+    background-color: teal;
+    border:1px solid rgb(189, 143, 110);
+    font-weight: bold;
+ 
+}
+.login-btn:hover{
+    background-color: white;
+    border:1px solid rgb(14, 13, 12);
+}
+.fbGoogle-container{
+    border-top: 1px solid gray;
+    width:430px;
+    margin-bottom:10px;
+     
+     
+}
+ 
+.google{
+    background: linear-gradient(to right, #EA4335 0%, #FBBC05 40%, #34A853 60%, #4285F4 99% );
+}

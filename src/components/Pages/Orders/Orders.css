@@ -1,0 +1,23 @@
+.card-design{
+    top: 50px;
+}
+.ready-product{
+    font-size:20px;
+    color:rgb(15, 167, 15)
+}
+
+.error{
+    color:red;
+} 
+.btn-submit{
+    width:150px;
+    background-color:red;
+    border-radius:20px;
+    padding:10px;
+    border:1px solid #CCB686;
+    color:white;
+    font-weight:500
+}
+.btn-submit:hover{
+    background-color:green;
+}

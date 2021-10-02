@@ -1,0 +1,17 @@
+.nav-size{
+     font-size:15px;
+     font-weight:bold;
+}
+.nav-size:hover{
+     color: #9cc026 !important;
+}
+.gogreen-title{
+     font-size:30px;
+     color:gainsboro;
+}
+.recycle-title{
+     font-size: 12px;
+     font-weight:bold;
+     font-family:"Poppins,sans-serif";
+     color:gainsboro;
+}
