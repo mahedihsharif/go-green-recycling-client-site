@@ -18,6 +18,8 @@ import Admin from './components/Pages/Admin/Admin';
 import Products from "./components/Pages/Products/Products";
 import Review from './components/UserDashboard/Review/Review';
 import Blog from './components/Pages/Blog/Blog';
+import Cart from './components/Pages/Cart/Cart';
+import CartPreview from "./components/Pages/CartPreview/CartPreview";
 export const userContext = React.createContext();
 export const productContext = React.createContext();
 
@@ -47,8 +49,10 @@ function App() {
               <Route path="/orders/:id" component={Orders} />
               <Route path="/login" component={Login} />
               <Route path="/admin" component={Admin}/>
+              <Route path="/cart" component={Cart} /> 
               <Route path="/all-products" component={Products}/>
               <Route path="/blog" component={Blog}/> 
+              <Route path="/cartPreview" component={CartPreview}/>
               <PrivateRoute path="/orderList">
                 <BookedList/> 
               </PrivateRoute>
@@ -61,9 +65,9 @@ function App() {
                 <UserDashboard/> 
               </PrivateRoute>
               
-              <PrivateRoute path="/shop">
+              <Route path="/shop">
                 <Shop/> 
-              </PrivateRoute>
+              </Route>
 
               <PrivateRoute path="/profile">
                 <Profile/> 

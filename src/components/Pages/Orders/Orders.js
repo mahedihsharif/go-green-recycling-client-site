@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import {Link, useParams } from 'react-router-dom';
 import { productContext } from '../../../App';
 import Footer from '../../Shared/Footer/Footer';
 import UserDashboard from '../../UserDashboard/UserDashboard/UserDashboard';
@@ -78,7 +78,7 @@ const Orders = () => {
            <Card.Text style={{ fontSize: "20px", color: "tomato" }} className="text-muted mt-2">
              ${productData?.price}
            </Card.Text>
-           <Button onClick={handleEventClick} className="mt-3">Replace Order</Button>
+            <Button onClick={handleEventClick} className="mt-3">Place Order</Button> 
          </Card.Body>
        
      </div>

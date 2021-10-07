@@ -1,11 +1,13 @@
 import React from "react";
 import Logo from "../../../images/logo.png";
+import { Badge } from "@material-ui/core";
 import { Fragment } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Menu, Transition } from "@headlessui/react";
 import "./NavbarComponent.css";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { userContext } from "../../../App";
+import { ShoppingCartOutlined } from "@material-ui/icons";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -18,10 +20,14 @@ const NavbarComponent = () => {
           <Navbar.Brand href="#home">
             <div className="row">
               <div className="col-md-6">
-                <img className="w-11" src={Logo} />
+                <Link to="/home">
+                  <img className="w-11" src={Logo} />
+                </Link>
               </div>
               <div className="col-md-6">
-                <h1 className="gogreen-title">𝙂𝙤𝙂𝙧𝙚𝙚𝙣</h1>
+                <Link to="/home">
+                  <h1 className="gogreen-title">𝙂𝙤𝙂𝙧𝙚𝙚𝙣</h1>
+                </Link>
                 <p className="text-muted recycle-title">RECYCLING</p>
               </div>
             </div>
@@ -29,60 +35,55 @@ const NavbarComponent = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
-              <Nav.Link
-                className="nav-size text-uppercase bg-gray-900 m-3 text-white"
-              >
-              <Link to="/home" className="nav-size">
+              <Nav.Link className="nav-size text-uppercase bg-gray-900 m-3 text-white">
+                <Link to="/home" className="nav-size">
                   {" "}
                   Home{" "}
                 </Link>
-                
               </Nav.Link>
               <Link to="/services">
-              <Nav.Link
-                
-                className="nav-size text-uppercase m-3 text-white hover:bg-gray-900"
-              >
-              <Link to="/services" className="nav-size">
-                  {" "}
-                  Services{" "}
-                </Link>  
-              </Nav.Link>
+                <Nav.Link className="nav-size text-uppercase m-3 text-white hover:bg-gray-900">
+                  <Link to="/services" className="nav-size">
+                    {" "}
+                    Services{" "}
+                  </Link>
+                </Nav.Link>
               </Link>
               <Nav.Link
                 href="#home"
                 className="nav-size text-uppercase m-3 text-white hover:bg-gray-900"
-              > 
+              >
                 <Link to="/blog" className="nav-size">
                   {" "}
                   Blog{" "}
                 </Link>
               </Nav.Link>
-              <Nav.Link
-                className="nav-size text-uppercase m-3 text-white hover:bg-gray-900"
-              >
-              <Link to="/shop" className="nav-size">
+              <Nav.Link className="nav-size text-uppercase m-3 text-white hover:bg-gray-900">
+                <Link to="/shop" className="nav-size">
                   {" "}
                   Shop{" "}
                 </Link>
               </Nav.Link>{" "}
-               
               <Nav.Link className=" text-uppercase m-3 text-white hover:bg-gray-900">
                 <Link to="/dashboard" className="nav-size">
                   {" "}
                   Dashboard{" "}
                 </Link>
               </Nav.Link>{" "}
-              <Nav.Link
-                className="nav-size text-uppercase m-3 text-white hover:bg-gray-900"
-              >
+              <Nav.Link className="nav-size text-uppercase m-3 text-white hover:bg-gray-900">
                 <Link to="/contact" className="nav-size">
                   {" "}
                   Contacts{" "}
                 </Link>
-                
               </Nav.Link>
- 
+              <Nav.Link className="nav-size text-uppercase m-3 text-white hover:bg-gray-900">
+                <Link to="/cartPreview" className="nav-size">
+                  {" "}
+                  <Badge badgeContent={4} color="primary">
+                    <ShoppingCartOutlined/>
+                  </Badge>
+                </Link>
+              </Nav.Link>
             </Nav>
             <Menu as="div" className="ml-3 relative m-3 z-10">
               {({ open }) => (
@@ -114,7 +115,7 @@ const NavbarComponent = () => {
                       <Menu.Item>
                         {({ active }) => (
                           <Link
-                             to="/profile"
+                            to="/profile"
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
