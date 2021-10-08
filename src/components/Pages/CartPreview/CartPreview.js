@@ -1,6 +1,6 @@
 import React from "react";
 import { productContext } from "../../../App";
-import { getDatabaseCart } from "../../../utilities/databaseManager";
+import { getDatabaseCart, removeFromDatabaseCart } from "../../../utilities/databaseManager";
 import Footer from "../../Shared/Footer/Footer";
 import NavbarComponent from "../../Shared/Navbar/NavbarComponent";
 import CartPreviewItem from "../CartPreviewItem/CartPreviewItem";
@@ -9,7 +9,7 @@ import Cart from './../Cart/Cart';
 const CartPreview = () => {
   const [products, setProducts] = React.useContext(productContext);
   const [cart, setCart] = React.useState([]);
-  const [placeOrder, setPlaceOrder] = React.useState(false);
+  
 
   React.useEffect(() => {
     const saveCart = getDatabaseCart();
@@ -22,16 +22,21 @@ const CartPreview = () => {
       });
       setCart(countProduct);
     }
-  }, []);
+  }, [products]);
 
-  console.log(cart);
+  const removeProduct = (productKey) => {
+    const newCart = cart.filter(pd => pd._id !== productKey);
+    setCart(newCart);
+    removeFromDatabaseCart(productKey);
+}
+ 
   return (
     <>
     <NavbarComponent/>
     <div className="d-flex justify-content-center py-5">
           <div className="row w-75">
       {cart.map((pd) => (
-        <CartPreviewItem pd={pd} id={pd._id} />
+        <CartPreviewItem pd={pd} id={pd._id}   removeProduct={removeProduct}/>
       ))}
       </div>
       <Cart cart={cart}/> 

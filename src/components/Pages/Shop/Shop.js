@@ -14,7 +14,7 @@ const Shop = () => {
   React.useEffect(() => {
     const saveCart = getDatabaseCart();
     const productKey = Object.keys(saveCart);
-    if(products.length){
+    if(products.length>0){
       const previousCart=productKey.map(existingKey =>{
         const product =products.find(pd=>pd._id === existingKey);
         product.quantity=saveCart[existingKey];
@@ -22,7 +22,7 @@ const Shop = () => {
     })
     setCart(previousCart);
     }
-}, [])
+}, [products])
    
   const addEventHandler=(product)=>{
     const toBeAddedKey =product._id;

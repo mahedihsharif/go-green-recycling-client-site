@@ -1,9 +1,6 @@
-import { Add, Remove } from '@material-ui/icons';
 import React from 'react';
 import styled from 'styled-components';
-import Footer from '../../Shared/Footer/Footer';
-import NavbarComponent from './../../Shared/Navbar/NavbarComponent';
-
+ 
 const Container = styled.div``;
 const Wrapper = styled.div`
   padding: 20px;
@@ -29,6 +26,7 @@ const TopButton = styled.button`
   color: ${(props) => props.type === "filled" && "white"};
   font-size: 16px;
 `;
+
 const TopTexts = styled.div``;
 const TopText = styled.span`
   margin: 10px;
@@ -40,7 +38,7 @@ const Bottom = styled.div`
 display: flex;
   justify-content: space-between;
 `;
-
+ 
 const Info = styled.div`
 flex:3;
 `;
@@ -63,66 +61,16 @@ flex-direction: column;
 `;
 const ProductName = styled.div``;
 const ProductId = styled.div``;
-const ProductColor = styled.div`
-width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: ${(props) => props.color};
-`;
 const ProductDesc = styled.p``;
-const PriceDetail = styled.div`
-flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content:center;
-`;
-const ProductAmountContainer= styled.div`
-display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-  cursor: pointer;
-`;
-const ProductAmount=styled.div`
-font-size: 24px;
-  margin: 5px;
-`;
-const ProductPrice = styled.div`
-font-size: 30px;
-  font-weight: 200;
-`;
+
 const Hr = styled.hr`
   background-color:gray;
   border: none;
   height: 1px;
 `;
-const Summary = styled.div`
-flex: 1;
-  border: 0.5px solid lightgray;
-  border-radius: 10px;
-  padding: 50px;
-  height: 50vh;
-  margin-top:25px;
-`;
-const SummaryTitle=styled.h1`
-font-weight: 200;
-margin:5px;
-`;
-const SummaryItem = styled.div`
- margin: 30px 0px;
-  display: flex;
-  justify-content: space-between;
-  font-weight: ${(props) => props.type === "total" && "500"};
-  font-size: ${(props) => props.type === "total" && "24px"};
-`;
-const SummaryItemPrice = styled.span`
-font-size:20px;
-`;
-const SummaryItemText = styled.span`
-font-size:20px;
-`;
+
 const Button = styled.button`
-width: 100%;
+width:30%;
   padding: 10px;
   background-color: black;
   color: white;
@@ -130,30 +78,17 @@ width: 100%;
   cursor: pointer;
   border-radius:10px;
 `;
+const ProductPrice=styled.div``;
 const CartPreviewItem = (props) => {
     const cart=props.pd;
-    console.log(cart)
-    const {productName,quantity,image,description}=cart;
-//   const total=cart.reduce((total,pd)=>(total+pd.price*pd.quantity),0);
-  
-//   let shipping =0;
-//   if(total>=15 && total<=35){
-//       shipping=4.99;
-//   }
-//   else if(total>35){
-//       shipping=0.00;
-//   }
-//   else if(total>0 && total<15){
-//       shipping=12.99;
-//   }
-//   let tax=(total*0.1).toFixed(2);
-//   let totalPrice=(total+shipping+Number(tax)).toFixed(2);
+   
+    const {productName,quantity,image,description,price,_id}=cart;
     return (
         <Container> 
         <Wrapper>
            <Title>Your Bag</Title>
           <Top>
-            <TopButton>Continue Shopping</TopButton>
+            <TopButton type="filled">Continue Shopping</TopButton>
             <TopTexts>
               <TopText>Your Bag(2)</TopText>
               <TopText>Your Wishlist(0)</TopText>
@@ -177,39 +112,17 @@ const CartPreviewItem = (props) => {
                     <ProductDesc>
                       <b>Description:</b> {description}
                     </ProductDesc>
+                    <ProductPrice>
+                      <b>Price:</b> {price}  
+                    </ProductPrice>
+                    <Button onClick={() =>props.removeProduct(_id)}>
+                    Remove Order
+                    </Button>
                           </Details>
                       </ProductDetail>
-                      <PriceDetail>
-                  <ProductAmountContainer>
-                    <Add />
-                    <ProductAmount>2</ProductAmount>
-                    <Remove/>
-                  </ProductAmountContainer>
-                  <ProductPrice>$ 30</ProductPrice>
-                </PriceDetail>
                   </Product>
                   <Hr/> 
               </Info>  
-              {/* <Summary>
-              <SummaryTitle>ORDER SUMMARY</SummaryTitle>
-              <SummaryItem>
-                <SummaryItemText>Total order:</SummaryItemText>
-                <SummaryItemPrice>{cart.length}</SummaryItemPrice>
-              </SummaryItem>
-              <SummaryItem>
-                <SummaryItemText>Estimated Shipping:</SummaryItemText>
-                <SummaryItemPrice> ৳{shipping} </SummaryItemPrice>
-              </SummaryItem>
-              <SummaryItem>
-                <SummaryItemText>Tax + VAT: </SummaryItemText>
-                <SummaryItemPrice> ৳{tax}</SummaryItemPrice>
-              </SummaryItem>
-              <SummaryItem type="total">
-                <SummaryItemText>Total:</SummaryItemText>
-                <SummaryItemPrice> ৳{totalPrice}</SummaryItemPrice>
-              </SummaryItem>
-              <Button>CHECKOUT NOW</Button>
-            </Summary> */}
           </Bottom>
         </Wrapper>
       </Container>
