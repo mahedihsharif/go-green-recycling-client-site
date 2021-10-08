@@ -1,7 +1,6 @@
-import { Add, Remove } from '@material-ui/icons';
 import React from 'react';
 import styled from 'styled-components';
- 
+import {Link} from 'react-router-dom'
 const Container = styled.div``;
 const Wrapper = styled.div`
   padding: 20px;
@@ -15,7 +14,7 @@ flex: 1;
   margin-top:25px;
 `;
 const SummaryTitle=styled.h1`
-font-weight: 200;
+font-weight: 500;
 margin:5px;
 `;
 const SummaryItem = styled.div`
@@ -82,7 +81,7 @@ const Cart = ( props) => {
               <SummaryItemText>Total:</SummaryItemText>
               <SummaryItemPrice> ৳{totalPrice}</SummaryItemPrice>
             </SummaryItem>
-            <Button>CHECKOUT NOW</Button>
+            <Link to="/cartItem"><Button>CHECKOUT NOW</Button></Link>
           </Summary>
       
       </Wrapper>

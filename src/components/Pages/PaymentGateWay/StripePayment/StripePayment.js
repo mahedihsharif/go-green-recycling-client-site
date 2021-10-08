@@ -147,7 +147,7 @@ const StripePayment = ({handlePaymentSuccess}) => {
     {
       paymentSuccess && <div><br></br>
       <p   className="paymentSuccess">{paymentSuccess}</p> 
-      <Link to="/booklist"><h6 className="order">Click here to view your order</h6></Link>
+      <Link to="/cartOrderList"><h6 className="order">Click here to view your order</h6></Link>
       </div>
     }
   </div>

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React from 'react';
 import styled from 'styled-components';
  
@@ -86,14 +87,11 @@ const CartPreviewItem = (props) => {
     return (
         <Container> 
         <Wrapper>
-           <Title>Your Bag</Title>
+           
           <Top>
-            <TopButton type="filled">Continue Shopping</TopButton>
-            <TopTexts>
-              <TopText>Your Bag(2)</TopText>
-              <TopText>Your Wishlist(0)</TopText>
-            </TopTexts>
-            <TopButton type="filled">CHECKOUT NOW</TopButton>
+           <Link to="/shop"><TopButton type="filled">Continue Shopping</TopButton></Link>
+             
+           <Link to="/cartItem"> <TopButton type="filled">CHECKOUT NOW</TopButton></Link>
           </Top>
   
           <Bottom>
