@@ -118,7 +118,7 @@ function Login() {
           newUser ? <p className="mt-2">Already have an account? <u><span className="same-input mt-2" style={{ color: 'blue', cursor: 'pointer' }} onClick={() => setnewUser(!newUser)} >login</span></u></p> : <p className="mt-2">Don't have an account? <u><span className="same-input mt-2" style={{ color: 'blue', cursor: 'pointer' }} onClick={() => setnewUser(!newUser)} >Create an account</span></u></p>
         }
         <br></br>
-        <p style={{ color: 'red', fontSize: '15px' }}>error</p>
+        <p style={{ color: 'red', fontSize: '15px' }}>{user.error}</p>
       </form>
       <div className="fbGoogle-container mt-5">
         {

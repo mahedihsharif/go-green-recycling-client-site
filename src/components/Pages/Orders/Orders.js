@@ -1,13 +1,64 @@
 import React from 'react';
-import {Link, useParams } from 'react-router-dom';
+import {  useParams } from 'react-router-dom';
 import { productContext } from '../../../App';
 import Footer from '../../Shared/Footer/Footer';
 import UserDashboard from '../../UserDashboard/UserDashboard/UserDashboard';
-import { Button, Card } from 'react-bootstrap';
 import "./Orders.css"
 import { useForm } from 'react-hook-form';
 import { userContext } from './../../../App';
 import Stripes from './../PaymentGateWay/Stripes/Stripes';
+import styled  from 'styled-components';
+
+const Wrapper = styled.div`
+  padding: 50px;
+  display: flex;
+`;
+const ImageContainer = styled.div`
+  flex: 1;
+`;
+const InfoContainer = styled.div`
+  flex: 1;
+  margin: 0 60px;
+`;
+const Image = styled.img`
+  width: 80%;
+  height: 60vh;
+  object-fit: cover;
+  border-radius: 5px;
+`;
+const Title = styled.h1`
+  font-weight: 400;
+  font-size:23px;
+`;
+const Desc = styled.p`
+  margin: 30px 0px;
+  font-size: 20px;
+`;
+const Price = styled.span`
+  font-size: 23px;
+`;
+
+const AddContainer = styled.div`
+width:50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+`;
+ 
+const Button = styled.button`
+  padding:10px;
+  margin-top:15px;
+  color: white;
+  border: 1px solid #f8f4f4;
+  cursor: pointer;
+  border-radius: 5px;
+    background-color: teal;
+    border: 1px solid teal;
+    border-radius: 5px;
+    font-size:16px;
+ 
+`;
 const Orders = () => {
     const { id } = useParams();
     const [products, setProducts] = React.useContext(productContext);
@@ -62,27 +113,25 @@ const Orders = () => {
         <>
         <UserDashboard/>
        {
-         display ?  <div className="m-3 p-5 card-design">
-        <div className="mx-auto " style={{ width: "25rem" }}>
-         
-         <Card.Body className="style-card-body">
-         <p className="ready-product text-center">Your Product is ready for order</p>
-           <Card.Img
-             variant="top"
-             src={`data:image/jpeg;base64,${productData?.image?.img}`}
-           />
-           <Card.Title className="mt-3">{productData?.productName}</Card.Title>
-           <Card.Text style={{ fontSize: "15px" }} className="text-muted">
-             {productData?.description}
-           </Card.Text>
-           <Card.Text style={{ fontSize: "20px", color: "tomato" }} className="text-muted mt-2">
-             ${productData?.price}
-           </Card.Text>
-            <Button onClick={handleEventClick} className="mt-3">Place Order</Button> 
-         </Card.Body>
-       
-     </div>
-        </div>:
+         display ?   <div className="m-5">
+         <Wrapper>
+        <ImageContainer>
+          <Image src={`data:image/jpeg;base64,${productData?.image?.img}`}/>
+        </ImageContainer>
+        <InfoContainer>
+          <Title><b>Product:</b> {productData?.productName}</Title>
+          <Desc>
+          <b>Description:</b> {productData?.description}
+          </Desc>
+          <Price><b>Price:</b> ৳{productData?.price}</Price>
+          <AddContainer>
+             
+            <Button onClick={handleEventClick}>Place Order</Button>
+          </AddContainer>
+        </InfoContainer>
+      </Wrapper>
+         </div>
+        :
         <div className=" m-3 p-5 pr-5 w-50 mx-auto">
                
                 <form style={{ display: shipmentUserData ? "none" : "block" }} onSubmit={handleSubmit(onSubmit)}>
