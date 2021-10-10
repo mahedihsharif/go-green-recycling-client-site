@@ -11,22 +11,6 @@ const Title = styled.h1`
   font-weight: 400;
   padding-top: 15px;
 `;
-const Top = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-`;
-const TopButton = styled.button`
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 5px;
-  border: ${(props) => props.type === "filled" && "none"};
-  background-color: ${(props) =>
-    props.type === "filled" ? "black" : "transparent"};
-  color: ${(props) => props.type === "filled" && "white"};
-  font-size: 16px;
-`;
 
 const TopTexts = styled.div``;
 const TopText = styled.span`
@@ -87,13 +71,7 @@ const CartPreviewItem = (props) => {
     return (
         <Container> 
         <Wrapper>
-           
-          <Top>
-           <Link to="/shop"><TopButton type="filled">Continue Shopping</TopButton></Link>
-             
-           <Link to="/cartItem"> <TopButton type="filled">CHECKOUT NOW</TopButton></Link>
-          </Top>
-  
+        
           <Bottom>
               <Info>
                   <Product>

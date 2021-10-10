@@ -27,7 +27,7 @@ const Shipment = () => {
     
         }
       
-        fetch('http://localhost:7000/cartProduct', {
+        fetch('https://go-green-recycling.herokuapp.com/cartProduct', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

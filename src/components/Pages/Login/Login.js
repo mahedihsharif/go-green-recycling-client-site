@@ -24,7 +24,7 @@ function Login() {
   const history = useHistory();
   const location = useLocation();
   let { from } = location.state || { from: { pathname: "/" } };
-
+ 
   // Google signInMethod firebase.
 
   const googleSignIn = () => {
@@ -32,8 +32,8 @@ function Login() {
       .then(res => {
         setUser(res);
         setLogin(res);
-        history.replace(from);
         storeAuthToken();
+        history.replace(from);
       })
 
   }
@@ -75,8 +75,8 @@ function Login() {
         .then((res) => {
           setUser(res);
           setLogin(res);
+         
           history.replace(from);
-          
         })
     }
 
@@ -98,8 +98,8 @@ function Login() {
      <NavbarComponent/>
     {/* This login form */}
 
-     <div className="w-25 mx-auto mt-5">
-     <form onSubmit={submitFormHandler} action="" className="form-container">
+     <div className="mx-auto mt-5 full-body">
+     <form onSubmit={submitFormHandler} action="" className="form-container w-50 mx-auto mt-5">
         {newUser && <input className=" same-input-field same-input" type="text" name="name" onBlur={handleBlur} placeholder="Your name" required></input>}<br></br>
          
          <input className=" same-input-field same-input" type="text" name="email" onBlur={handleBlur} placeholder="Your Email" required></input> 
@@ -119,7 +119,9 @@ function Login() {
         }
         <br></br>
         <p style={{ color: 'red', fontSize: '15px' }}>{user.error}</p>
+      
       </form>
+      
       <div className="fbGoogle-container mt-5">
         {
           user.isSignedIn ? <button className="btn google same-btn" onClick={googleSignOut}>Sign out</button> : <button className="btn google same-btn" onClick={googleSignIn}>   Continue With google</button>
@@ -127,10 +129,10 @@ function Login() {
         <br></br>
         
       </div>
-       
      </div>
     </>
   );
 }
 
 export default Login;
+

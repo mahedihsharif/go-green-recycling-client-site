@@ -117,7 +117,7 @@ const StripePayment = ({handlePaymentSuccess}) => {
         className="payment-card"
       />
     </label><br></br>
-    <label className="text-secondary lbl">
+    {/* <label className="text-secondary lbl">
       CVC
       <CardCvcElement
         options={options}
@@ -135,7 +135,7 @@ const StripePayment = ({handlePaymentSuccess}) => {
         }}
         className="payment-card"
       />
-    </label><br></br>
+    </label><br></br> */}
     <button className="btnDesign" type="submit" disabled={!stripe}>
       Pay
     </button>
@@ -147,7 +147,7 @@ const StripePayment = ({handlePaymentSuccess}) => {
     {
       paymentSuccess && <div><br></br>
       <p   className="paymentSuccess">{paymentSuccess}</p> 
-      <Link to="/cartOrderList"><h6 className="order">Click here to view your order</h6></Link>
+       
       </div>
     }
   </div>

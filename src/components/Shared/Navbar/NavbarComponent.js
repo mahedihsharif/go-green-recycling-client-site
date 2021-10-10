@@ -76,14 +76,14 @@ const NavbarComponent = () => {
                   Contacts{" "}
                 </Link>
               </Nav.Link>
-              <Nav.Link className="nav-size text-uppercase m-3 text-white hover:bg-gray-900">
+              {/* <Nav.Link className="nav-size text-uppercase m-3 text-white hover:bg-gray-900">
                 <Link to="/cartPreview" className="nav-size">
                   {" "}
-                  <Badge badgeContent={4} color="primary">
+                  <Badge color="primary">
                     <ShoppingCartOutlined/>
                   </Badge>
                 </Link>
-              </Nav.Link>
+              </Nav.Link> */}
             </Nav>
             <Menu as="div" className="ml-3 relative m-3 z-10">
               {({ open }) => (

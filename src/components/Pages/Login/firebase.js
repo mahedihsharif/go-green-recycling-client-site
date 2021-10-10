@@ -2,6 +2,9 @@ import React from 'react';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import firebaseConfig from '../../../firebase.config';
+ 
+
+  
 export const firebaseInitializeLogIn = () => {
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
@@ -10,6 +13,7 @@ export const firebaseInitializeLogIn = () => {
     }
 
 }
+
 
 // Firebase Google signIn method call.
 
@@ -36,7 +40,6 @@ export const handleGooglesignIn = () => {
     firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
       .then(function (idToken) {
         sessionStorage.setItem('token', idToken);
-        
       }).catch(function (error) {
         // Handle error
       });

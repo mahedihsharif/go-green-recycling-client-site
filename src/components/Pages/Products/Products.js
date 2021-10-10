@@ -8,7 +8,7 @@ const Products = () => {
     const [products,setProducts] = React.useContext(productContext);
     const [deleteItem,setDeleteItem]=React.useState("")
     const deleteService=(id) => {
-        fetch('http://localhost:7000/productDelete/'+id,{
+        fetch('https://go-green-recycling.herokuapp.com/productDelete/'+id,{
             method: 'DELETE',
         })
         .then(res=>res.json())

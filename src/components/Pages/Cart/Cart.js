@@ -33,6 +33,7 @@ font-size:20px;
 const Button = styled.button`
 width: 100%;
   padding: 10px;
+  margin-bottom: 10px;
   background-color: black;
   color: white;
   font-weight: 600;
@@ -81,6 +82,7 @@ const Cart = ( props) => {
               <SummaryItemText>Total:</SummaryItemText>
               <SummaryItemPrice> ৳{totalPrice}</SummaryItemPrice>
             </SummaryItem>
+            <Link to="/cartPreview"><Button>VIEW CART</Button></Link>
             <Link to="/cartItem"><Button>CHECKOUT NOW</Button></Link>
           </Summary>
       

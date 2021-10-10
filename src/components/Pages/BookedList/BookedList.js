@@ -7,7 +7,7 @@ const BookedList = () => {
     const [orderProducts,setOrderProduct]=React.useState([]);
 
     React.useEffect(() => {
-        fetch('http://localhost:7000/showCustomersOrder?email='+login.email)
+        fetch('https://go-green-recycling.herokuapp.com/showCustomersOrder?email='+login.email)
         .then(res=>res.json())
         .then(data=>setOrderProduct(data))
     },[login])

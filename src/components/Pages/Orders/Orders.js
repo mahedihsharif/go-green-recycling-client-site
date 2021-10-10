@@ -87,7 +87,7 @@ const Orders = () => {
 
     }
   
-    fetch('http://localhost:7000/shipments', {
+    fetch('https://go-green-recycling.herokuapp.com/shipments', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -102,7 +102,7 @@ const Orders = () => {
 }
 
  React.useEffect(() => {
-        fetch('http://localhost:7000/product/'+id)
+        fetch('https://go-green-recycling.herokuapp.com/product/'+id)
             .then(res => res.json())
             .then(data => {
                 setShipmentProduct(data[0])

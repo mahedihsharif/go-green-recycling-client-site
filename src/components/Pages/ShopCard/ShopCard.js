@@ -31,7 +31,7 @@ const ShopCard = (props) => {
             {description}
           </Card.Text>
           <Card.Text style={{ fontSize: "20px", color: "tomato" }}>
-            ${price}
+          ৳{price}
           </Card.Text>
           <ButtonContainer>
             <Link to={`/orders/${_id}`}>

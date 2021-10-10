@@ -5,6 +5,27 @@ import Footer from "../../Shared/Footer/Footer";
 import NavbarComponent from "../../Shared/Navbar/NavbarComponent";
 import CartPreviewItem from "../CartPreviewItem/CartPreviewItem";
 import Cart from './../Cart/Cart';
+import styled  from 'styled-components';
+import { Link } from 'react-router-dom';
+
+const Top = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content:space-around;  
+  padding: 20px;
+   
+`;
+const TopButton = styled.button`
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: ${(props) => props.type === "filled" && "none"};
+  background-color: ${(props) =>
+    props.type === "filled" ? "black" : "transparent"};
+  color: ${(props) => props.type === "filled" && "white"};
+  font-size: 16px;
+`;
+
 
 const CartPreview = () => {
   const [products, setProducts] = React.useContext(productContext);
@@ -33,6 +54,11 @@ const CartPreview = () => {
   return (
     <>
     <NavbarComponent/>
+    <Top>
+           <Link to="/shop"><TopButton type="filled">Continue Shopping</TopButton></Link>
+             
+           <Link to="/cartItem"> <TopButton type="filled">CHECKOUT NOW</TopButton></Link>
+          </Top>
     <div className="d-flex justify-content-center py-5">
           <div className="row w-75">
       {cart.map((pd) => (
