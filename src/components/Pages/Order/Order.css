@@ -1,7 +1,9 @@
 .box-container{
     
-    color:green;
+    color:black;
+    font-size: 17px;
+    padding:15px;
+    border:2px solid lightgrey;
     
-    font-size: 15px;
-    
+    border-right: 2px solid lightgrey;
 }

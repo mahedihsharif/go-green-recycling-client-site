@@ -28,7 +28,7 @@ const Review = () => {
       
       //Image upload in Backend side system.
 
-      fetch('https://go-green-recycling.herokuapp.com/addReview', {
+      fetch('http://localhost:7000/addReview', {
           method: 'POST',
           body: formData
       })

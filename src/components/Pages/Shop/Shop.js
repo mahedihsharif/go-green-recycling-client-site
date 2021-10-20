@@ -47,7 +47,7 @@ const Shop = () => {
     <>
       <NavbarComponent />
       <section className="bg-gray-50 p-5">
-        <h1 className="text-center font-bold gogreen mt-3 font-monospace service">
+        <h1 className="text-center font-bold gogreen mt-5 font-monospace service">
           Shop
         </h1>
     

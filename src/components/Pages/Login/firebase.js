@@ -21,7 +21,6 @@ export const handleGooglesignIn = () => {
     const googleProvider = new firebase.auth.GoogleAuthProvider();
     return firebase.auth().signInWithPopup(googleProvider)
         .then((res) => {
-            console.log(res.user)
             const { displayName, email,photoURL  } = res.user;
             const SignedIn = {
                 isSignedIn: true,
@@ -30,20 +29,22 @@ export const handleGooglesignIn = () => {
                 photo:photoURL,
                 success: true
             }
+             
             return SignedIn;
         })
         
 
 }
 
- export const storeAuthToken = () => {
-    firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
-      .then(function (idToken) {
-        sessionStorage.setItem('token', idToken);
-      }).catch(function (error) {
-        // Handle error
-      });
-    }
+ 
+const setUserToken = () => {
+    firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
+        
+      sessionStorage.setItem('token', idToken);
+    }).catch(function(error) {
+      // Handle error
+    });
+  }
 
  
  

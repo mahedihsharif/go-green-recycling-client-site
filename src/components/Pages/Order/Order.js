@@ -8,7 +8,7 @@ const OrderList = () => {
     const [orderProducts,setOrderProduct]=React.useState([]);
     //loaded user orders information matching by email.
     React.useEffect(() => {
-        fetch('https://go-green-recycling.herokuapp.com/orderlistByAdmin', {
+        fetch('http://localhost:7000/orderlistByAdmin', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify({email: login.email})
@@ -30,10 +30,10 @@ const OrderList = () => {
             <th className="text-secondary" scope="col"><h5>Email</h5></th>
             <th className="text-secondary" scope="col"><h5>Address</h5></th>
             <th className="text-secondary" scope="col"><h5>Phone</h5></th>
-             
-            <th className="text-secondary" scope="col"><h5>Status</h5></th>
+           
             <th className="text-secondary" scope="col"><h5>Date</h5></th>
-             
+               
+            <th className="text-secondary" scope="col"><h5>Status</h5></th>
              
             </tr>
         </thead>
@@ -41,15 +41,15 @@ const OrderList = () => {
             {
                 orderProducts.map((pd, index) => 
                     
-                <tr>
-                    <td className="box-container"><h5>{index + 1}</h5></td>
-                    <td className="box-container"><h5>{pd?.shipment?.name}</h5></td>
-                    <td className="box-container"><h5>{pd?.shipment?.email}</h5></td>
-                    <td className="box-container"><h5>{pd?.shipment?.address}</h5></td>
-                    <td className="box-container"><h5>{pd?.shipment?.phone}</h5></td>
-                    <td className="box-container"><h5>{new Date(pd?.orderDate).toDateString()}</h5></td>
+                <tr className="box-container">
+                    <td ><h5>{index + 1}</h5></td>
+                    <td><h5>{pd?.shipment?.name}</h5></td>
+                    <td><h5>{pd?.shipment?.email}</h5></td>
+                    <td><h5>{pd?.shipment?.address}</h5></td>
+                    <td><h5>{pd?.shipment?.phone}</h5></td>
+                    <td><h5>{new Date(pd?.orderDate).toDateString()}</h5></td>
                     
-                    <td className="box-container" >
+                    <td>
                             
                             <select>
                                 <option   className="text-white p-5" style={{backgroundColor:'orange'}}>Pending</option>

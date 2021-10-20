@@ -15,7 +15,7 @@ const NavbarComponent = () => {
   const [login, setLogin] = React.useContext(userContext);
   return (
     <>
-      <Navbar bg="gray-800" expand="lg">
+      <Navbar bg="gray-800" expand="lg" fixed='top'>
         <Container>
           <Navbar.Brand href="#home">
             <div className="row">
@@ -115,7 +115,7 @@ const NavbarComponent = () => {
                       <Menu.Item>
                         {({ active }) => (
                           <Link
-                            to="/profile"
+                            to={login.email ? "/profile": "/login" }
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"

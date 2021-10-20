@@ -26,7 +26,7 @@ const AddNew = () => {
       
       //Image upload in Backend side system.
 
-      fetch('https://go-green-recycling.herokuapp.com/addProduct', {
+      fetch('http://localhost:7000/addProduct', {
           method: 'POST',
           body: formData
       })

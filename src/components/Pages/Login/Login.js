@@ -32,7 +32,6 @@ function Login() {
       .then(res => {
         setUser(res);
         setLogin(res);
-        storeAuthToken();
         history.replace(from);
       })
 

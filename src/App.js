@@ -22,6 +22,7 @@ import Cart from './components/Pages/Cart/Cart';
 import CartPreview from "./components/Pages/CartPreview/CartPreview";
 import Shipment from "./components/Pages/Shipment/Shipment";
 import CartBookedList from "./components/Pages/CartBookedList/CartBookedList";
+ 
 export const userContext = React.createContext();
 export const productContext = React.createContext();
 
@@ -30,7 +31,7 @@ function App() {
   const [products,setProducts] = React.useState([]);
 
   React.useEffect(() => {
-    fetch('https://go-green-recycling.herokuapp.com/allProduct')
+    fetch('http://localhost:7000/allProduct')
     .then(res=>res.json())
     .then(data =>{
       setProducts(data)
@@ -49,6 +50,7 @@ function App() {
               <Route path="/addNew" component={AddNew} />
               <Route path="/comments" component={Review} />
               <Route path="/orders/:id" component={Orders} />
+              
               <Route path="/login" component={Login} />
               <Route path="/admin" component={Admin}/>
               <Route path="/cart" component={Cart} /> 

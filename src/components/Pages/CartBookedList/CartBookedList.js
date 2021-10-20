@@ -9,7 +9,7 @@ const CartBookedList = () => {
  
 
     React.useEffect(() => {
-        fetch('https://go-green-recycling.herokuapp.com/showCartOrder?email='+login.email,{
+        fetch('http://localhost:7000/showCartOrder?email='+login.email,{
             method: 'GET',
             headers: {
                 authorization:`Bearer ${sessionStorage.getItem('token')}`,

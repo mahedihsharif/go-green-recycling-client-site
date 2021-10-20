@@ -18,7 +18,7 @@ const Admin = () => {
         formData.append('email', info.email);
      
 
-        fetch('https://go-green-recycling.herokuapp.com/addAdmin', {
+        fetch('http://localhost:7000/addAdmin', {
             method: 'POST',
             body: formData
         })

@@ -1,7 +1,21 @@
  
 .deleteBtn{
-    color: teal;
+    width:70px;
     cursor: pointer;
     font-size:15px;
+    background-color:red;
+    padding:10px;
+    color:white;
+    border-radius: 5px;
    
 }
+.update-Btn{
+    width:70px;
+    cursor: pointer;
+    font-size:15px;
+     background-color:teal;
+    padding:10px;
+    color:white;
+    border-radius: 5px;
+}
+ 

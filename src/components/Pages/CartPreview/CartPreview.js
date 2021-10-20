@@ -13,6 +13,7 @@ const Top = styled.div`
   align-items: center;
   justify-content:space-around;  
   padding: 20px;
+  margin-top:100px;
    
 `;
 const TopButton = styled.button`

@@ -112,7 +112,7 @@ const UserSidebar = () => {
   };
 
   React.useEffect(() => {
-    fetch('https://go-green-recycling.herokuapp.com/isAdmin', {
+    fetch('http://localhost:7000/isAdmin', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({ email: login.email })
