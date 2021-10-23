@@ -1,24 +1,22 @@
 import React from 'react';
 import UserDashboard from '../../UserDashboard/UserDashboard/UserDashboard';
-import { userContext } from './../../../App';
+ 
 import "./CartBookedList.css"
+import { Context } from './../../../context/Context';
 
 const CartBookedList = () => {
-    const [login, setLogin]=React.useContext(userContext);
+    const {user}=React.useContext(Context);
     const [orderProducts,setOrderProduct]=React.useState([]);
  
 
     React.useEffect(() => {
-        fetch('http://localhost:7000/showCartOrder?email='+login.email,{
+        fetch('https://go-green-recycling.herokuapp.com/showCartOrder?email='+user.email,{
             method: 'GET',
-            headers: {
-                authorization:`Bearer ${sessionStorage.getItem('token')}`,
-                'Content-Type': 'application/json'
-            }
+            headers: { 'content-type': 'application/json' },
         })
         .then(res=>res.json())
-        .then(data=> console.log(data))
-    },[])
+        .then(data=> setOrderProduct(data))
+    },[user.email])
     
     return (
         <div>

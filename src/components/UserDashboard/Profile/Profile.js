@@ -7,7 +7,8 @@ import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import './Profile.css'
 import { Link } from "react-router-dom";
 import UserSidebar from "../UserSidebar/UserSidebar";
-import { userContext } from "../../../App";
+ 
+import { Context } from './../../../context/Context';
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -31,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 const Profile = () => {
   const classes = useStyles();
-  const [login, setLogin] = React.useContext(userContext);
+  const {user}=React.useContext(Context);
   
   let form = useRef(null);
   const handleSubmit = (event) => {
@@ -67,7 +68,7 @@ const Profile = () => {
                     <div class="h-24 w-24 md rounded-full relative avatar flex items-end justify-end text-purple-400  absolute -top-16 flex bg-purple-200 text-purple-100 row-start-1 row-end-3 text-purple-650 ring-1">
                       <img
                         class="h-24 w-24 md rounded-full relative"
-                        src= {login?.photo}
+                        src= {user?.photo}
                         alt=""
                       />
                       <div class="absolute"></div>
@@ -76,11 +77,11 @@ const Profile = () => {
                        
 					   
 					  <span class="text-md whitespace-nowrap text-gray-50 font-semibold">
-                        {login?.name}
+                        {user?.name}
                       </span>
                       
                       <p class="text-sm text-gray-200">
-                         {login?.email}
+                         {user?.email}
                       </p>
                    
                     </div>

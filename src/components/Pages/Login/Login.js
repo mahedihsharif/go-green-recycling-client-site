@@ -2,14 +2,13 @@ import { useContext, useState } from 'react';
 import { useHistory, useLocation } from "react-router";
 import './Login.css';
 import { createSignInAndPasswordHandler, firebaseInitializeLogIn, handleFbSignIn, handleGooglesignIn, handleGooglesignOut, signInAndPasswordHandler,storeAuthToken } from './firebase';
- 
 import NavbarComponent from '../../Shared/Navbar/NavbarComponent';
-import { userContext } from './../../../App';
+import { Context } from './../../../context/Context';
  
 function Login() {
 
   const [newUser, setnewUser] = useState(false);
-  const [login, setLogin] = useContext(userContext);
+  const {dispatch,isFetching}=useContext(Context);
   const [user, setUser] = useState({
     isSignedIn: false,
     name: '',
@@ -20,19 +19,16 @@ function Login() {
     success: false
   })
   firebaseInitializeLogIn();
-
-  const history = useHistory();
-  const location = useLocation();
-  let { from } = location.state || { from: { pathname: "/" } };
  
   // Google signInMethod firebase.
 
   const googleSignIn = () => {
+    dispatch({ type:"LOGIN_START" })
     handleGooglesignIn()
       .then(res => {
         setUser(res);
-        setLogin(res);
-        history.replace(from);
+        dispatch({ type:"LOGIN_SUCCESS", payload:res })
+        
       })
 
   }
@@ -43,7 +39,7 @@ function Login() {
     handleGooglesignOut()
       .then(res => {
         setUser(res);
-        setLogin(res)
+         
       })
   }
 
@@ -68,25 +64,25 @@ function Login() {
   }
   const submitFormHandler = (e) => {
     // Sign up for new user.
-
+    dispatch({ type:"LOGIN_START" });
     if (newUser && user.email && user.password) {
       createSignInAndPasswordHandler(user.name, user.email, user.password )
         .then((res) => {
           setUser(res);
-          setLogin(res);
-         
-          history.replace(from);
+          dispatch({ type:"LOGIN_SUCCESS", payload:res });
+          
         })
     }
 
     // Sign in for existing user.
 
     if (!newUser && user.email && user.password) {
+      dispatch({ type:"LOGIN_START" });
       signInAndPasswordHandler(user.email, user.password)
         .then((res) => {
           setUser(res);
-          setLogin(res);
-          history.replace(from);
+          dispatch({ type:"LOGIN_SUCCESS", payload:res })
+           
         })
     }
     e.preventDefault();

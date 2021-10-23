@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { makeStyles } from "@material-ui/core/styles";
  
 import UserSidebar from "../UserSidebar/UserSidebar";
-import { userContext } from "../../../App";
+import { Context } from './../../../context/Context';
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 const UpdateProfile = () => {
   const classes = useStyles();
-  const [login, setLogin] = React.useContext(userContext);
+  const {user}=React.useContext(Context);
   let form = useRef(null);
   const handleSubmit = (event) => {
       event.preventDefault();
@@ -74,7 +74,7 @@ const UpdateProfile = () => {
                                     </div>
                                 </div>
                                 <div className="w-20 h-20 rounded-full bg-cover bg-center bg-no-repeat absolute bottom-0 -mb-10 ml-12 shadow flex items-center justify-center">
-                                    <img src={login?.photo} alt className="absolute z-0 h-full w-full object-cover rounded-full shadow top-0 left-0 bottom-0 right-0" />
+                                    <img src={user?.photo} alt className="absolute z-0 h-full w-full object-cover rounded-full shadow top-0 left-0 bottom-0 right-0" />
                                     <div className="absolute bg-black opacity-50 top-0 right-0 bottom-0 left-0 rounded-full z-0" />
                                     <div className="cursor-pointer flex flex-col justify-center items-center z-10 text-gray-100">
                                         <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-edit" width={20} height={20} viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">

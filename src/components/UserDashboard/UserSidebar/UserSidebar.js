@@ -28,7 +28,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
  import "./UserSidebar.css";
 import { faCommentDots } from "@fortawesome/free-regular-svg-icons";
-import { userContext } from './../../../App';
+ 
+import { Context } from './../../../context/Context';
+import { useHistory } from 'react-router';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -99,10 +101,10 @@ const useStyles = makeStyles((theme) => ({
 const UserSidebar = () => {
   const classes = useStyles();
   const theme = useTheme();
-  const [login, setLogin] = React.useContext(userContext);
+  const  {user,dispatch} = React.useContext(Context);
   const [isAdmin, setIsAdmin] = React.useState(true);
   const [open, setOpen] = React.useState(false);
-
+  const history = useHistory();
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -112,14 +114,19 @@ const UserSidebar = () => {
   };
 
   React.useEffect(() => {
-    fetch('http://localhost:7000/isAdmin', {
+    fetch('https://go-green-recycling.herokuapp.com/isAdmin', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ email: login.email })
+        body: JSON.stringify({ email: user.email })
     })
         .then(res => res.json())
         .then(data => setIsAdmin(data));
-}, [])
+}, [user.email])
+
+const handleLogout = () => {
+  dispatch({ type: "LOGGEDOUT" });
+  history.push("/");
+};
  
   //make sidebar list by array....
   // const menuItems = [
@@ -168,7 +175,7 @@ const UserSidebar = () => {
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
-                        src={login?.photo}
+                        src={user?.photo}
                         alt=""
                       />
                     </Menu.Button>
@@ -221,7 +228,7 @@ const UserSidebar = () => {
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
                             )}
-                            onClick={() => setLogin({})}
+                            onClick={handleLogout}
                           >
                             Sign out
                           </a>

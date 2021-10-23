@@ -6,7 +6,7 @@ import Testimonial from '../Testimonial/Testimonial';
 const Testimonials = () => {
   const [testimonials,setTestimonials]=React.useState([]);
   React.useEffect(() => {
-      fetch('http://localhost:7000/reviews')
+      fetch('https://go-green-recycling.herokuapp.com/reviews')
       .then(res=>res.json())
       .then(data =>setTestimonials(data))
   },[])

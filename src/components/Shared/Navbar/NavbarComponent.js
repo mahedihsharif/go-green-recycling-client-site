@@ -1,21 +1,28 @@
 import React from "react";
 import Logo from "../../../images/logo.png";
-import { Badge } from "@material-ui/core";
+
 import { Fragment } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Menu, Transition } from "@headlessui/react";
 import "./NavbarComponent.css";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { userContext } from "../../../App";
-import { ShoppingCartOutlined } from "@material-ui/icons";
+import { Context } from "./../../../context/Context";
+import { useHistory } from "react-router";
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 const NavbarComponent = () => {
-  const [login, setLogin] = React.useContext(userContext);
+  const { user, dispatch } = React.useContext(Context);
+  const history = useHistory();
+ 
+  const handleLogout = () => {
+    dispatch({ type: "LOGGEDOUT" });
+    history.push("/");
+  };
   return (
     <>
-      <Navbar bg="gray-800" expand="lg" fixed='top'>
+      <Navbar bg="gray-800" expand="lg" fixed="top">
         <Container>
           <Navbar.Brand href="#home">
             <div className="row">
@@ -93,7 +100,7 @@ const NavbarComponent = () => {
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
-                        src={login?.photo}
+                        src={user?.photo}
                         alt=""
                       />
                     </Menu.Button>
@@ -115,7 +122,7 @@ const NavbarComponent = () => {
                       <Menu.Item>
                         {({ active }) => (
                           <Link
-                            to={login.email ? "/profile": "/login" }
+                            to={user ? "/profile" : "/login"}
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
@@ -141,12 +148,11 @@ const NavbarComponent = () => {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
                             className={classNames(
                               active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
+                              "block px-4 py-2 text-sm text-gray-700 cursor-pointer"
                             )}
-                            onClick={() => setLogin({})}
+                            onClick={handleLogout}
                           >
                             Sign out
                           </a>

@@ -1,21 +1,22 @@
 import React from 'react';
 import UserDashboard from '../../UserDashboard/UserDashboard/UserDashboard';
-import { userContext } from '../../../App';
+ 
 import "./Order.css"
+import { Context } from './../../../context/Context';
 
 const OrderList = () => {
-    const [login, setLogin] = React.useContext(userContext);
+    const {user}=React.useContext(Context);
     const [orderProducts,setOrderProduct]=React.useState([]);
     //loaded user orders information matching by email.
     React.useEffect(() => {
-        fetch('http://localhost:7000/orderlistByAdmin', {
+        fetch('https://go-green-recycling.herokuapp.com/orderlistByAdmin', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
-            body: JSON.stringify({email: login.email})
+            body: JSON.stringify({email: user.email})
         })
             .then(res => res.json())
             .then(data => setOrderProduct(data))
-    }, [login.email])
+    }, [user.email])
     return (
         <div>
          <UserDashboard/>

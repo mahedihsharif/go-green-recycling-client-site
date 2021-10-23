@@ -5,9 +5,10 @@ import Footer from '../../Shared/Footer/Footer';
 import UserDashboard from '../../UserDashboard/UserDashboard/UserDashboard';
 import "./Orders.css"
 import { useForm } from 'react-hook-form';
-import { userContext } from './../../../App';
+ 
 import Stripes from './../PaymentGateWay/Stripes/Stripes';
 import styled  from 'styled-components';
+import { Context } from './../../../context/Context';
 
 const Wrapper = styled.div`
   padding: 50px;
@@ -67,8 +68,7 @@ const Orders = () => {
     const { register, handleSubmit, watch, errors } = useForm();
     const [shipmentProduct, setShipmentProduct] = React.useState({});
     const productData = products.find(pd => pd._id === id);
-    const [login, setLogin] = React.useContext(userContext);
-    console.log(login)
+    const {user}=React.useContext(Context);
     const handleEventClick=()=>{
       setDisplay(false);
   }
@@ -79,7 +79,7 @@ const Orders = () => {
 
   const handlePaymentSuccess = (paymentId) => {
     const orderDetails = {
-        ...login,
+        ...user,
         ...shipmentProduct,
         shipment: shipmentUserData,
         paymentId,
@@ -87,7 +87,7 @@ const Orders = () => {
 
     }
   
-    fetch('http://localhost:7000/shipments', {
+    fetch('https://go-green-recycling.herokuapp.com/shipments', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -102,7 +102,7 @@ const Orders = () => {
 }
 
  React.useEffect(() => {
-        fetch('http://localhost:7000/product/'+id)
+        fetch('https://go-green-recycling.herokuapp.com/product/'+id)
             .then(res => res.json())
             .then(data => {
                 setShipmentProduct(data[0])
