@@ -105,11 +105,11 @@ const Products = () => {
                 <h5>Price</h5>
               </th>
               <th className="text-secondary" scope="col">
+                <h5>Update</h5>
+              </th>
+              <th className="text-secondary" scope="col">
                 <h5>Delete</h5>
               </th>
-              {/* <th className="text-secondary" scope="col">
-                <h5>Delete</h5>
-              </th> */}
             </tr>
           </thead>
           <tbody>
@@ -130,14 +130,16 @@ const Products = () => {
                 <td>
                   <h5>{pd?.price}</h5>
                 </td>
-                {/* <td onClick={()=>{updateService(pd?._id)}}>
+                <Link to={`/updateProduct/${pd?._id}`}>
+                <td>
                    
-                    <h4 onClick={openModal} className="update-Btn">
-                      {" "}
-                      Update
-                    </h4>
-                  
-                </td> */}
+                   <h4 className="update-Btn">
+                     {" "}
+                     Edit
+                   </h4>
+                 
+               </td>
+                </Link>
 
                 <td>
                   <h4

@@ -22,6 +22,7 @@ import CartPreview from "./components/Pages/CartPreview/CartPreview";
 import Shipment from "./components/Pages/Shipment/Shipment";
 import CartBookedList from "./components/Pages/CartBookedList/CartBookedList";
 import { Context } from './context/Context';
+import UpdateProduct from './components/Pages/UpdateProduct/UpdateProduct';
 export const productContext = React.createContext();
 
 function App() {
@@ -80,6 +81,7 @@ const {user}=React.useContext(Context);
               </Route>
 
               <Route path="/updateProfile" component={UpdateProfile} />
+              <Route path="/updateProduct/:pId" component={UpdateProduct} /> 
               <Route exact path="/" component={Home} />
             </Switch>
           </Router>
