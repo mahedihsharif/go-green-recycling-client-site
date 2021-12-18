@@ -1,5 +1,5 @@
 import React from 'react';
-import UserDashboard from '../../UserDashboard/UserDashboard/UserDashboard';
+import UserDashboard from '../../Dashboard/Dashboard/Dashboard';
 
 const Admin = () => {
     const [info, setInfo] = React.useState({});
@@ -18,7 +18,7 @@ const Admin = () => {
         formData.append('email', info.email);
      
 
-        fetch('https://go-green-recycling.herokuapp.com/addAdmin', {
+        fetch('http://localhost:7000/addAdmin', {
             method: 'POST',
             body: formData
         })

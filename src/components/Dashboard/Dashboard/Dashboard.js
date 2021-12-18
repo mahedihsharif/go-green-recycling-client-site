@@ -1,7 +1,7 @@
 import React from 'react';
-import UserSidebar from '../UserSidebar/UserSidebar';
+import UserSidebar from '../Sidebar/Sidebar';
 
-const UserDashboard = () => {
+const Dashboard = () => {
     return (
         <>
            <UserSidebar/>
@@ -10,4 +10,4 @@ const UserDashboard = () => {
     );
 };
 
-export default UserDashboard;
+export default Dashboard;

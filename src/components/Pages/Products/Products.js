@@ -1,8 +1,7 @@
 import React from "react";
 import { productContext } from "../../../App";
-import UserDashboard from "../../UserDashboard/UserDashboard/UserDashboard";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import UserDashboard from "../../Dashboard/Dashboard/Dashboard";
+ 
 import { Link } from "react-router-dom";
 import "./Products.css";
 import Modal from 'react-modal';
@@ -28,7 +27,7 @@ const Products = () => {
   const [products, setProducts] = React.useContext(productContext);
   const [deleteItem, setDeleteItem] = React.useState("");
   const deleteService = (id) => {
-    fetch("https://go-green-recycling.herokuapp.com/productDelete/" + id, {
+    fetch("http://localhost:7000/productDelete/" + id, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -66,7 +65,7 @@ const Products = () => {
         
         //Image upload in Backend side system.
   
-        fetch('https://go-green-recycling.herokuapp.com/addProduct', {
+        fetch('http://localhost:7000/addProduct', {
             method: 'POST',
             body: formData
         })

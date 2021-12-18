@@ -2,20 +2,20 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
 import Home from "./components/Home/Home/Home";
-import Profile from "./components/UserDashboard/Profile/Profile";
-import UpdateProfile from "./components/UserDashboard/UpdateProfile/UpdateProfile";
-import UserDashboard from "./components/UserDashboard/UserDashboard/UserDashboard";
+import Profile from "./components/Dashboard/Profile/Profile";
+import UpdateProfile from "./components/Dashboard/UpdateProfile/UpdateProfile";
+import UserDashboard from "./components/Dashboard/Dashboard/Dashboard";
 import Services from "./components/Pages/Services/Services";
 import Shop from "./components/Pages/Shop/Shop";
 import Contact from "./components/Pages/Contact/Contact";
-import AddNew from "./components/UserDashboard/AddNew/AddNew";
+import AddNew from "./components/Dashboard/AddNew/AddNew";
 import Login from "./components/Pages/Login/Login";
 import Orders from './components/Pages/Orders/Orders';
 import BookedList from "./components/Pages/BookedList/BookedList";
 import Order from "./components/Pages/Order/Order";
 import Admin from './components/Pages/Admin/Admin';
 import Products from "./components/Pages/Products/Products";
-import Review from './components/UserDashboard/Review/Review';
+import Review from './components/Dashboard/Review/Review';
 import Blog from './components/Pages/Blog/Blog';
 import Cart from './components/Pages/Cart/Cart';
 import CartPreview from "./components/Pages/CartPreview/CartPreview";
@@ -30,7 +30,7 @@ function App() {
   const [products,setProducts] = React.useState([]);
 
   React.useEffect(() => {
-    fetch('https://go-green-recycling.herokuapp.com/allProduct')
+    fetch('http://localhost:7000/allProduct')
     .then(res=>res.json())
     .then(data =>{
       setProducts(data)

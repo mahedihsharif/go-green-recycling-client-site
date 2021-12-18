@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { makeStyles } from "@material-ui/core/styles";
  
-import UserSidebar from "../UserSidebar/UserSidebar";
+import UserSidebar from "../Sidebar/Sidebar";
 import { Context } from './../../../context/Context';
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");

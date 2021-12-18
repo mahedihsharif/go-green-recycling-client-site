@@ -20,8 +20,8 @@ const ShopCard = (props) => {
   const handleAdded=props.addEventHandler;
   return (
     <>
-      <div className="mx-auto mt-5 " style={{ width: "25rem" }}>
-        <Card.Body className="style-card-body">
+      <div className="mx-auto mt-5" style={{ width: "25rem" }}>
+        <Card.Body className="style-card-body h-100">
           <Card.Img
             variant="top"
             src={`data:image/jpeg;base64,${props?.pd?.image?.img}`}

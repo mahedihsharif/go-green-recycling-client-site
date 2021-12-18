@@ -1,5 +1,5 @@
 import React from 'react';
-import UserDashboard from '../../UserDashboard/UserDashboard/UserDashboard';
+import UserDashboard from '../../Dashboard/Dashboard/Dashboard';
 
 const Blog = () => {
     return (

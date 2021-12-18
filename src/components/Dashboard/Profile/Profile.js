@@ -1,12 +1,12 @@
 import React, { useRef } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
+ 
  
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import './Profile.css'
 import { Link } from "react-router-dom";
-import UserSidebar from "../UserSidebar/UserSidebar";
+import UserSidebar from "../Sidebar/Sidebar";
  
 import { Context } from './../../../context/Context';
 function classNames(...classes) {

@@ -6,7 +6,7 @@ import { Publish } from "@material-ui/icons";
 import { useLocation } from "react-router";
 
 import { useEffect, useState } from "react";
-import UserDashboard from "../../UserDashboard/UserDashboard/UserDashboard";
+import UserDashboard from "../../Dashboard/Dashboard/Dashboard";
 import { productContext } from "./../../../App";
 
 const UpdateProduct = () => {
@@ -32,7 +32,7 @@ const UpdateProduct = () => {
     
     //Image upload in Backend side system.
 
-    fetch('https://go-green-recycling.herokuapp.com/updateProduct/'+productId, {
+    fetch('http://localhost:7000/updateProduct/'+productId, {
         method: 'PATCH',
         body: formData
     })

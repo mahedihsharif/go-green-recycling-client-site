@@ -1,8 +1,10 @@
+import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import Footer from "../../Shared/Footer/Footer";
-import "./AddNew.css";
-import UserDashboard from "../UserDashboard/UserDashboard";
-const AddNew = () => {
+import UserDashboard from "../Dashboard/Dashboard";
+ import "./Review.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+const Review = () => {
   const [info, setInfo] = React.useState({});
   const [file, setFile] = React.useState(null);
   const handleBlur = e => {
@@ -21,12 +23,12 @@ const AddNew = () => {
       console.log(info);
       formData.append('file', file);
       formData.append('name', info.name);
-      formData.append('price', info.price);
-      formData.append('description', info.description);
+      formData.append('designation', info.designation);
+      formData.append('comment', info.comment);
       
       //Image upload in Backend side system.
 
-      fetch('https://go-green-recycling.herokuapp.com/addProduct', {
+      fetch('http://localhost:7000/addReview', {
           method: 'POST',
           body: formData
       })
@@ -39,63 +41,64 @@ const AddNew = () => {
           })
   }
 
-  return (  
+  return (
     <>
       <UserDashboard />
       <div className=" p-4 pr-5 mt-5 mb-5 w-75 mx-auto">
       {file && (
      <img class="mx-auto" style={{width:"20rem"}} src={URL.createObjectURL(file)} alt="" />
    )}
-        <h5 className="text-brand mt-4 text-center writeInput">Add New</h5>
+        <h5 className="text-brand mt-4 text-center writeReviewInput">Write your Comment..</h5>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="exampleInputPassword1" className="writeInput">
-              Product Name
+            <label htmlFor="exampleInputPassword1" className="writeReviewInput">
+              Your Name
             </label>
             <input
             onBlur={handleBlur}
               type="text"
-              className="form-control writeInput mt-2 mb-3"
+              className="form-control writeReviewInput mt-2 mb-3"
               name="name"
-              placeholder="Product Name"
+              placeholder="Enter your Name"
                
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="exampleInputPassword1" className="writeInput">
-              Price
+            <label htmlFor="exampleInputPassword1" className="writeReviewInput">
+            Designation
             </label>
             <input
             onBlur={handleBlur}
               type="text"
-              className="form-control writeInput mt-2 mb-3"
-              name="price"
-              placeholder="Enter a Price"
+              className="form-control writeReviewInput mt-2 mb-3"
+              name="designation"
+              placeholder="Enter your designation"
               
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="exampleInputPassword1" className="writeInput">
-              Description
+            <label htmlFor="exampleInputPassword1" className="writeReviewInput">
+              Write your Review
             </label>
             <textarea
            onBlur={handleBlur}
               type="text"
-              className="form-control writeInput mt-2 mb-3"
+              className="form-control writeReviewInput mt-2 mb-3"
               cols="30"
               rows="5"
-              name="description"
-              placeholder="description"
+              name="comment"
+              placeholder="Write your comment..."
               
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="exampleInputPassword1" className="writeInput">
-              Upload a image
+            <label htmlFor="exampleInputPassword1" className="writeReviewInput">
+            <FontAwesomeIcon icon={faPlusCircle} style={{fontSize: "25px", color: "teal", cursor: "pointer"}}/>
             </label>
+             
             <input
                onChange={handleFileChange}
               type="file"
@@ -114,4 +117,4 @@ const AddNew = () => {
   );
 };
 
-export default AddNew;
+export default Review;

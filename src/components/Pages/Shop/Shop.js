@@ -52,7 +52,7 @@ const Shop = () => {
         </h1>
     
         <div className="d-flex justify-content-center py-5">
-          <div className="row w-75">
+          <div className="row w-75 ">
             {products.map((pd) => (
               <ShopCard showAddToCart={true} pd={pd} id={pd.id} addEventHandler={addEventHandler}/>
             ))}
