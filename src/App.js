@@ -29,7 +29,7 @@ function App() {
   const [products, setProducts] = React.useState([]);
 
   React.useEffect(() => {
-    fetch("http://localhost:7000/allProduct")
+    fetch("https://go-green-recycling-server-site.onrender.com/allProduct")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
