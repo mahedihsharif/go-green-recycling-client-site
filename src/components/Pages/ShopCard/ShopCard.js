@@ -17,11 +17,11 @@ const Button = styled.button`
 `;
 const ShopCard = (props) => {
   const { productName, description, price, _id } = props.pd;
-  const handleAdded=props.addEventHandler;
+  const handleAdded = props.addEventHandler;
   return (
     <>
       <div className="mx-auto mt-5" style={{ width: "25rem" }}>
-        <Card.Body className="style-card-body h-100">
+        <Card.Body className="style-card-body p-4">
           <Card.Img
             variant="top"
             src={`data:image/jpeg;base64,${props?.pd?.image?.img}`}
@@ -31,13 +31,13 @@ const ShopCard = (props) => {
             {description}
           </Card.Text>
           <Card.Text style={{ fontSize: "20px", color: "tomato" }}>
-          ৳{price}
+            ${price}
           </Card.Text>
           <ButtonContainer>
             <Link to={`/orders/${_id}`}>
               <Button>BUY NOW</Button>
             </Link>
-              <Button onClick={()=>handleAdded(props.pd)}>ADD TO CART</Button>
+            <Button onClick={() => handleAdded(props.pd)}>ADD TO CART</Button>
           </ButtonContainer>
         </Card.Body>
       </div>

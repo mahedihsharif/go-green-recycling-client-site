@@ -1,8 +1,11 @@
-.save{
-font-size:60px
+.save {
+  font-size: 60px;
 }
-.save-common{
-    color:#38e938;
-    font-size: 30px;
+.save-common {
+  color: #38e938;
+  font-size: 30px;
 }
- 
+
+.header-content {
+  padding-bottom: 15rem;
+}

@@ -17,6 +17,7 @@
     "@reduxjs/toolkit": "^1.6.2",
     "@stripe/react-stripe-js": "^1.4.1",
     "@stripe/stripe-js": "^1.17.1",
+    "@swiper/core": "^0.0.21",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.8.3",
@@ -37,6 +38,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "styled-components": "^5.3.1",
+    "swiper": "^9.0.5",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.4",
     "web-vitals": "^1.1.1"
   },
@@ -63,6 +65,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {}
+  }
 }

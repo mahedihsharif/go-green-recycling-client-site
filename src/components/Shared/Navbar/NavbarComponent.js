@@ -1,13 +1,13 @@
 import React from "react";
 import Logo from "../../../images/logo.png";
 
-import { Fragment } from "react";
-import { Link } from "react-router-dom";
 import { Menu, Transition } from "@headlessui/react";
-import "./NavbarComponent.css";
+import { Fragment } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { Context } from "./../../../context/Context";
 import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
+import { Context } from "./../../../context/Context";
+import "./NavbarComponent.css";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -15,7 +15,7 @@ function classNames(...classes) {
 const NavbarComponent = () => {
   const { user, dispatch } = React.useContext(Context);
   const history = useHistory();
- 
+
   const handleLogout = () => {
     dispatch({ type: "LOGGEDOUT" });
     history.push("/");
